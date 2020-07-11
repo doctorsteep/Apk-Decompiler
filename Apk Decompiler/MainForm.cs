@@ -27,6 +27,7 @@ namespace Apk_Decompiler
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+			this.label1.Text = "v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.

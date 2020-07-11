@@ -19,9 +19,9 @@ namespace Apk_Decompiler
 	/// </summary>
 	public partial class HomeForm : Form
 	{
-		public static string apktoolVersion = @"2.4.1";
+		public static string apktoolLastVersion = @"2.4.1";
 		public static string pathHome = @"C:\Apk Decompiler";
-		public static string pathApktoolJar = @"\apktool_" + apktoolVersion + @".jar";
+		public static string pathApktoolJar = @"\apktool_" + apktoolLastVersion + @".jar";
 		public static string pathApktoolBat = @"\apktool.bat";
 		private string defauldDecompileFile = @"\AndroidManifest.xml";
 		
@@ -46,10 +46,13 @@ namespace Apk_Decompiler
 			
 			this.apkToolToolStripMenuItem.Text = "ApkTool";
 			
+			
+			
 			this.devToolStripMenuItem.Click += new System.EventHandler(aboutDeveloper);
 			this.gitHubOpenSourceToolStripMenuItem.Click += new System.EventHandler(aboutGitHub);
 			this.apkToolToolStripMenuItem.Click += new System.EventHandler(aboutApkTool);
 			this.decompileApkFileToolStripMenuItem.Click += new System.EventHandler(openDecompile);
+			this.button2.Click += new System.EventHandler(updatingLists);
 			
 			this.groupBox1.Text = "Список всех .apk файлов";
 			this.groupBox2.Text = "Список декомпилированных файлов";
@@ -57,6 +60,11 @@ namespace Apk_Decompiler
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+		}
+		
+		private void updatingLists(object sub, EventArgs e) {
+			DisplayApk(pathHome);
+			DisplayDecompiled(pathHome);
 		}
 		
 		private void downloadResources(object sub, EventArgs e) {
@@ -80,6 +88,7 @@ namespace Apk_Decompiler
 		}
 		
 		public void DisplayApk(string path) {
+			this.listView1.Items.Clear();
 			string[] files = System.IO.Directory.GetFiles(path);
 			for (int x = 0; x < files.Length; x++) {
 				if (System.IO.File.Exists(files[x]) && files[x].EndsWith(".apk")) {
@@ -91,6 +100,7 @@ namespace Apk_Decompiler
 		}
 		
 		public void DisplayDecompiled(string path) {
+			this.listView2.Items.Clear();
 			string[] files2 = System.IO.Directory.GetDirectories(path);
 			for (int x = 0; x < files2.Length; x++) {
 				if (System.IO.Directory.Exists(files2[x])) {

@@ -19,6 +19,8 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\Admin\AppData\Roaming\ICSharpCode\SharpDevelop5\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -34,6 +36,8 @@
     <Optimize>False</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -72,6 +76,10 @@
     <Compile Include="DownloadResources.cs" />
     <Compile Include="DownloadResources.Designer.cs">
       <DependentUpon>DownloadResources.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileDownloader.cs" />
+    <Compile Include="FileDownloader.Designer.cs">
+      <DependentUpon>FileDownloader.cs</DependentUpon>
     </Compile>
     <Compile Include="HomeForm.cs" />
     <Compile Include="HomeForm.Designer.cs">
